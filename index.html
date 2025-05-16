@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noticias Gamer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="login-container">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="username" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    <p id="login-error"></p>
+  </div>
+
+  <!-- PÁGINA PRINCIPAL -->
+  <div id="main-content" style="display: none;">
+    <h1>Noticias de Videojuegos</h1>
+
+    <!-- Calendario -->
+    <input type="date" id="filter-date" onchange="filterByDate()">
+
+    <!-- Lista de Noticias -->
+    <div id="news-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
