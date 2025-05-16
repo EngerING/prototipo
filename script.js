@@ -39,3 +39,39 @@ function filterByDate() {
   const filtered = news.filter(n => n.date === selectedDate);
   showNews(filtered.length > 0 ? filtered : [{ title: "Sin noticias", date: selectedDate, content: "No hay noticias para esta fecha." }]);
 }
+// Agregar nueva noticia desde formulario
+function addNews(event) {
+  event.preventDefault();
+
+  const title = document.getElementById("title").value.trim();
+  const date = document.getElementById("date").value;
+  const content = document.getElementById("content").value.trim();
+  const error = document.getElementById("form-error");
+
+  // Validación simple
+  if (!title || !date || !content) {
+    error.textContent = "Por favor, completa todos los campos.";
+    return;
+  }
+
+  if (title.length < 5 || content.length < 10) {
+    error.textContent = "El título debe tener al menos 5 caracteres y la descripción 10.";
+    return;
+  }
+
+  // Limpia el error
+  error.textContent = "";
+
+  // Crear nueva noticia
+  const newItem = {
+    title,
+    date,
+    content
+  };
+
+  news.push(newItem); // Agrega a la lista general
+  showNews(news);     // Refresca la lista
+
+  // Limpia el formulario
+  document.getElementById("news-form").reset();
+}

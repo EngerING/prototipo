@@ -23,7 +23,14 @@
 
     <!-- Calendario -->
     <input type="date" id="filter-date" onchange="filterByDate()">
-
+<h2>Agregar Noticia</h2>
+<form id="news-form" onsubmit="addNews(event)">
+  <input type="text" id="title" placeholder="Título de la noticia">
+  <input type="date" id="date">
+  <textarea id="content" placeholder="Descripción de la noticia"></textarea>
+  <button type="submit">Agregar</button>
+  <p id="form-error" style="color: red;"></p>
+</form>
     <!-- Lista de Noticias -->
     <div id="news-container"></div>
   </div>
